@@ -1,7 +1,7 @@
-/* eslint-env node */
+// jest.config.js
 module.exports = {
   testMatch: [
-    '**/?(*.)+(spec|test).[tj]s?(x)', // Matches files like app.test.js or app.spec.ts
+    '**/?(*.)+(spec|test).[tj]s?(x)', // Matches test files
   ],
-  testPathIgnorePatterns: ['/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/'], // Ignores node_modules during tests
 };

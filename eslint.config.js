@@ -1,8 +1,8 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
   { ignores: ['dist'] },
@@ -10,7 +10,7 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, jest: true },  // Add jest globals
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -33,6 +33,14 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      // Optionally disable the unescaped entities rule if needed
+      'react/no-unescaped-entities': 'off',  // Or set to 'warn' if you prefer a warning
     },
   },
-]
+  {
+    files: ['**/*.test.js', '**/*.test.jsx'],  // Target test files for Jest configuration
+    env: {
+      jest: true,  // This tells ESLint to consider Jest globals in these files
+    },
+  },
+];

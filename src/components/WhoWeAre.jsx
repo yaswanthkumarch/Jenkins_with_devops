@@ -29,6 +29,21 @@ NumberTicker.propTypes = {
     duration: PropTypes.number.isRequired,  // 'duration' should be a number
 };
 
+// StatsItem component to avoid code repetition
+const StatsItem = ({ end, label }) => (
+    <div>
+        <p className="text-4xl font-bold text-indigo-600">
+            <NumberTicker end={end} duration={2000} />+
+        </p>
+        <p className="mt-2 text-lg font-medium text-gray-700">{label}</p>
+    </div>
+);
+
+StatsItem.propTypes = {
+    end: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired,
+};
+
 // WhoWeAre component
 export default function WhoWeAre() {
     return (
@@ -40,24 +55,9 @@ export default function WhoWeAre() {
                     that drive business growth and digital transformation.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <p className="text-4xl font-bold text-indigo-600">
-                            <NumberTicker end={5} duration={2000} />+
-                        </p>
-                        <p className="mt-2 text-lg font-medium text-gray-700">Global Locations</p>
-                    </div>
-                    <div>
-                        <p className="text-4xl font-bold text-indigo-600">
-                            <NumberTicker end={50} duration={2000} />+
-                        </p>
-                        <p className="mt-2 text-lg font-medium text-gray-700">Certified Industry Experts</p>
-                    </div>
-                    <div>
-                        <p className="text-4xl font-bold text-indigo-600">
-                            <NumberTicker end={30} duration={2000} />+
-                        </p>
-                        <p className="mt-2 text-lg font-medium text-gray-700">Microsoft Azure's Developer and Admin Certifications</p>
-                    </div>
+                    <StatsItem end={5} label="Global Locations" />
+                    <StatsItem end={50} label="Certified Industry Experts" />
+                    <StatsItem end={30} label="Microsoft Azure's Developer and Admin Certifications" />
                 </div>
             </div>
         </section>
