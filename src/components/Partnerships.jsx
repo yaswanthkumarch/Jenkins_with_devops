@@ -12,9 +12,7 @@ const partnerLogos = [
   { src: HCL, alt: "HCL" },
   { src: HSBC, alt: "HSBC" },
   { src: llyodsBank, alt: "Lloyds Bank" },
-  { src: softtek, alt: "Softtek" },
-  { src: TechM, alt: "Tech Mahindra" },
-  { src: wipro, alt: "Wipro" },
+  { src: softtek, alt: "Softtek" },{ src: TechM, alt: "Tech Mahindra" },{ src: wipro, alt: "Wipro" },
 ];
 
 export default function Partnerships() {
@@ -28,7 +26,17 @@ export default function Partnerships() {
 
       const scroll = () => {
         scrollAmount += 1; // Adjust speed as needed
-        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
+        if (scrollAmount >= scrollContainer.scrollWidth / 2)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {
           scrollAmount = 0; // Reset scroll position
         }
         scrollContainer.scrollLeft = scrollAmount;
