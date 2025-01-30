@@ -1,5 +1,5 @@
 // jest.config.js
-module.exports = {
+export default {
   testMatch: [
     "**/?(*.)+(spec|test).[tj]s?(x)", // Matches test files
   ],
