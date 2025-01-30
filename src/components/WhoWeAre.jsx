@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
+// NumberTicker component with prop validation
 const NumberTicker = ({ end, duration }) => {
     const [count, setCount] = useState(0);
 
@@ -21,6 +23,13 @@ const NumberTicker = ({ end, duration }) => {
     return <span>{count}</span>;
 };
 
+// PropTypes validation for NumberTicker component
+NumberTicker.propTypes = {
+    end: PropTypes.number.isRequired,  // 'end' should be a number
+    duration: PropTypes.number.isRequired,  // 'duration' should be a number
+};
+
+// WhoWeAre component
 export default function WhoWeAre() {
     return (
         <section className="py-16 bg-white">
@@ -54,4 +63,3 @@ export default function WhoWeAre() {
         </section>
     );
 }
-
