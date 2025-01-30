@@ -1,46 +1,27 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-
 export default [
-  { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.js', '**/*.jsx'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: { ...globals.browser, jest: true },  // Add jest globals
+      globals: {
+        ...globals.browser,
+        test: 'readonly',  // Add Jest globals here
+        expect: 'readonly', // Add Jest globals here
+        module: 'readonly'  // Add Jest globals here
+      },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
     },
-    settings: { react: { version: '18.3' } },
-    plugins: {
+    plugins: [
       react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
+      'react-hooks',
+      'react-refresh',
+    ],
     rules: {
-      ...js.configs.recommended.rules,
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
-      ...reactHooks.configs.recommended.rules,
-      'react/jsx-no-target-blank': 'off',
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      // Optionally disable the unescaped entities rule if needed
-      'react/no-unescaped-entities': 'off',  // Or set to 'warn' if you prefer a warning
-    },
-  },
-  {
-    files: ['**/*.test.js', '**/*.test.jsx'],  // Target test files for Jest configuration
-    env: {
-      jest: true,  // This tells ESLint to consider Jest globals in these files
+      // Your ESLint rules
     },
   },
 ];
