@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 // import React from 'react'; //
-
->>>>>>> dd2b611c4404151b33596c8c1d20e2f8c964798e
 export default function Footer() {
     return (
         <footer className="bg-gray-800 text-white">
