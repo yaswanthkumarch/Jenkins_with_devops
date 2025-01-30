@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react'; //
 
 const NumberTicker = ({ end, duration }) => {
     const [count, setCount] = useState(0);
