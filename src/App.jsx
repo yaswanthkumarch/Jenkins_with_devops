@@ -7,20 +7,18 @@ import ServicesOffered from "./components/ServicesOffered.jsx";
 import Partnerships from "./components/Partnerships.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
 
-
 function App() {
-    return (
-        <div className="min-h-screen bg-gray-100">
-            <Navbar />
-            <ParallaxHero />
-            <WhoWeAre />
-            <ServicesOffered />
-            <Partnerships />
-            <WhyChooseUs/>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <ParallaxHero />
+      <WhoWeAre />
+      <ServicesOffered />
+      <Partnerships />
+      <WhyChooseUs />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
-
