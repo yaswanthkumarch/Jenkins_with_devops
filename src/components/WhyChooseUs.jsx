@@ -1,4 +1,4 @@
-import React from 'react';
+#import React from 'react';
 import { LightBulbIcon, ShieldCheckIcon, ChartBarIcon, CubeTransparentIcon, UserGroupIcon } from '@heroicons/react/20/solid';
 
 const reasons = [
