@@ -17,6 +17,7 @@ function App() {
       <Partnerships />
       <WhyChooseUs />
       <Footer />
+      
     </div>
   );
 }
