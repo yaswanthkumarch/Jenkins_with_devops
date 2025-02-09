@@ -1,0 +1,16 @@
+name: Trigger Jenkins Job
+ 
+on:
+  push:
+    paths-ignore:
+      - 'version.txt'  # Ignore changes to version.txt
+ 
+jobs:
+  trigger-jenkins:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Jenkins Build
+        env:
+          JENKINS_TOKEN: ${{ secrets.JENKINS_API_TOKEN }}
+        run: |
+curl -X POST "http://52.141.28.58:8080/job/Automation/job/TEST_flow/buildnow?token=$Jenkins_api_token"
