@@ -35,7 +35,7 @@ export default function ParallaxHero() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
           Empowering Your Business with
         </h1>
-       <h2>version : 1.0.6 [lts]</h2>
+       <h2>version : 1.0.7[/h2>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
           <span className="inline-block min-w-[200px] transition-all duration-500 ease-in-out transform">
             {words[currentWord]}
