@@ -7,4 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo message
-        run: echo "👋 Hello from the pipeline!"
+        run: echo "Hello 1"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo " Hello 2"
