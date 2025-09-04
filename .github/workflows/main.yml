@@ -8,8 +8,10 @@ jobs:
     steps:
       - name: Echo message
         run: echo "Hello 1"
+
   job2:
+    needs: echo-job  # This ensures job2 waits for echo-job to finish
     runs-on: ubuntu-latest
     steps:
       - name: Echo message
-        run: echo " Hello 2"
+        run: echo "Hello 2"
