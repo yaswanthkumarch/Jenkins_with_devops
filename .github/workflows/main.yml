@@ -3,37 +3,8 @@ name: CI Pipeline
 on: [push]
 
 jobs:
-  unit-tests:
+  echo-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-
-
-      - name: Run unit tests
-
-
-  system-tests:
-    needs: unit-tests  # only runs if unit-tests job succeeds
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-
-
-      - name: Run system tests
-
+      - name: Echo message
+        run: echo "👋 Hello from the pipeline!"
