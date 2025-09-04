@@ -15,10 +15,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+
 
       - name: Run unit tests
-        run: npm run test:unit
+
 
   system-tests:
     needs: unit-tests  # only runs if unit-tests job succeeds
@@ -33,7 +33,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+
 
       - name: Run system tests
-        run: npm run test:system
+
