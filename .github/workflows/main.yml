@@ -1,17 +1,43 @@
-name: CI Pipeline
+name: Needs Demo Pipeline
 
 on: [push]
 
 jobs:
-  echo-job:
+  # First job: build
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo message
-        run: echo "Hello 1"
+      - name: Build step
+        run: echo "Building the project..."
 
-  job2:
-    needs: echo-job  # This ensures job2 waits for echo-job to finish
+  # Second job: test, depends on build
+  test:
+    needs: build            # Runs *after* build completes successfully
     runs-on: ubuntu-latest
     steps:
-      - name: Echo message
-        run: echo "Hello 2"
+      - name: Run tests
+        run: echo "Running tests..."
+
+  # Third job: lint, runs in parallel with test (no needs)
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint code
+        run: echo "Linting code..."
+
+  # Fourth job: deploy, depends on test and lint
+  deploy:
+    needs: [test, lint]     # Waits for both test and lint jobs to finish successfully
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy step
+        run: echo "Deploying app..."
+
+  # Fifth job: notify, runs regardless of previous job outcomes
+  notify:
+    needs: deploy
+    if: always()            # Runs even if deploy failed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification
+        run: echo "Sending notification email (success or failure)."
